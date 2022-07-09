@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.BufferedImageHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +27,7 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 
 @RestController
-@RequestMapping("https://qrcode-backend-syeda.herokuapp.com/barcodes")
+@RequestMapping("/barcodes")
 public class QRController {
 	
     public static QRCodeImplementation qrCodeImplementation =  new QRCodeImplementation();
@@ -50,7 +51,7 @@ public class QRController {
 	       return new BufferedImageHttpMessageConverter();
 	   }
 	    //...
-	   
+	   @CrossOrigin
 	   @GetMapping(value = "/zxing/{url}")
 	   public static String generateQRCodeImageNew(@PathVariable String url)
 	            throws WriterException, IOException {
@@ -58,6 +59,7 @@ public class QRController {
 	        return shortenedURL;
 	   }
 	   
+	   @CrossOrigin
 	   @GetMapping(value = "/validateUrl/{testUrl}")
 	   public static boolean validateURL(@PathVariable String testUrl) {
 	        return qrCodeImplementation.validateURL(testUrl);
