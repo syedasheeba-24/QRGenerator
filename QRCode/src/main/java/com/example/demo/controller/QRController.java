@@ -26,7 +26,7 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 
 @RestController
-@RequestMapping("/barcodes")
+@RequestMapping("https://qrcode-backend-syeda.herokuapp.com/barcodes")
 public class QRController {
 	
     public static QRCodeImplementation qrCodeImplementation =  new QRCodeImplementation();
