@@ -54,12 +54,7 @@ public class QRController {
 	   @GetMapping(value = "/zxing/{url}")
 	   public static String generateQRCodeImageNew(@PathVariable String url)
 	            throws WriterException, IOException {
-	        QRCodeWriter qrCodeWriter = new QRCodeWriter();
-	        String shortenedURL=qrCodeImplementation.shortenURL(url); 
-	        String filePath=qrCodeImplementation.generateFileLocation();
-	        BitMatrix bitMatrix = qrCodeWriter.encode(url, BarcodeFormat.QR_CODE, 200, 200);
-	        Path path = FileSystems.getDefault().getPath(filePath);
-	        MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
+	        String shortenedURL=qrCodeImplementation.shortenURL(url);
 	        return shortenedURL;
 	   }
 	   

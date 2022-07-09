@@ -14,15 +14,6 @@ public class QRCodeImplementation {
 		return "shortURL.su/"+randInt;
 	}
 	
-	public String generateFileLocation() {
-		 String testPath = "C:\\QRCode";
-	        File folder = new File(testPath);
-	        if (!folder.exists()) {
-	        	folder.mkdir();
-	        }
-	     return "C:/QRCode/QRCode.png";
-	}
-	
 	public boolean validateURL(String url) {
 		UrlValidator urlValidator = new UrlValidator();
 		return urlValidator.isValid("https://"+url);
